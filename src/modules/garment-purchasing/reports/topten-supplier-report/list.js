@@ -25,7 +25,7 @@ export class List {
     SupplierType = ['LOCAL', 'IMPORT'];
     KategoriItem = ['','BAHAN BAKU', 'INTERLINING', 'BAHAN PENDUKUNG'];
    
-    termPaymentLocal = ['', 'KANA', 'CMT', 'FREE FROM BUYER', 'SAMPLE']; 
+    termPaymentLocal = ['', 'DAN LIRIS', 'CMT', 'FREE FROM BUYER', 'SAMPLE']; 
     termPaymentImport = ['','T/T PAYMENT', 'CMT', 'FREE FROM BUYER', 'SAMPLE'];
 
     get unitLoader() {

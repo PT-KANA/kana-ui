@@ -341,7 +341,7 @@ export class DataForm {
          this.data.Buyer = {
               Id : 567,
               Code : "DL01",
-              Name : "PT. KANA",
+              Name : "PT. DAN LIRIS",
               Type : "Internal",
          };        
          console.log(this.data.Buyer);

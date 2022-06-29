@@ -230,8 +230,8 @@ export class List {
                     let wb = XLSX.utils.book_new();
                     wb.Props = {
                         Title: 'Report',
-                        Subject: 'KANA',
-                        Author: 'KANA',
+                        Subject: 'Dan Liris',
+                        Author: 'Dan Liris',
                         CreatedDate: new Date()
                     };
                     wb.SheetNames.push('Laporan PPH');
@@ -239,7 +239,7 @@ export class List {
                     console.log(this);
                     let ws = XLSX.utils.json_to_sheet(wsData, { origin: "A6" });
                     XLSX.utils.sheet_add_aoa(ws, [
-                        ["PT.KANA"],
+                        ["PT.Dan Liris"],
                         ["Laporan Bukti Pengeluaran Bank PPH"],
                         [`PERIODE : ${this.dateFrom ? moment(this.dateFrom).format('DD MMMM YYYY') : '-'} sampai dengan ${this.dateTo ? moment(this.dateTo).format('DD MMMM YYYY') : '-'}`]
                     ], { origin: "A2" });

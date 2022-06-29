@@ -47,7 +47,7 @@ export class Item {
     "No. Kas Bon", "Supplier", "Keterangan", "No. SPB", "No. BTU", "Valas", "Jumlah Beli (Rp)", "Valas", "Jumlah Bayar (Rp)"
   ];
 
-  IncomeTaxByOptions = ["", "Supplier", "KANA"];
+  IncomeTaxByOptions = ["", "Supplier", "Dan Liris"];
 
   get dispositionLoader() {
     return DispositionLoader;

@@ -23,7 +23,7 @@ export class List {
     @bindable NamaSpl;
          
     SupplierType = ['','LOCAL', 'IMPORT'];
-    SupplierName = ['','KANA', 'SELAIN KANA'];
+    SupplierName = ['','DAN LIRIS', 'SELAIN DAN LIRIS'];
       
     get unitLoader() {
         return UnitLoader;

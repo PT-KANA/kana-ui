@@ -1,8 +1,8 @@
-// var generalRoutes = require("./general");
+var generalRoutes = require("./general");
 // var masterRoutes = require("./master");
 // var productionRoutes = require("./production");
 // var inventoryRoutes = require("./inventory");
-// var publicRoutes = require("./public");
+ var publicRoutes = require("./public");
 // var purchasingRoutes = require("./purchasing");
 // var reportRoutes = require("./report");
 // var authRoutes = require("./auth");
@@ -27,12 +27,13 @@
 // let garmentDashboard = require("./garment-dashboard");
 // let dashboardDP = require('./dashboard-dp');
 // let garmentSampleRoutes = require("./garment-sample");
-uploadRoutes = require("./upload");
+let uploadRoutes = require("./upload");
+
 
 export default [].concat(
-  uploadRoutes
-  // publicRoutes,
-  // generalRoutes,
+  publicRoutes,
+  generalRoutes,
+  uploadRoutes,
   // masterRoutes,
   // productionRoutes,
   // spinningRoutes,

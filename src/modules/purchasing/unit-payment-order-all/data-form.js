@@ -22,7 +22,7 @@ export class DataForm {
     @bindable selectedCategory;
     @bindable isImport = false;
 
-    IncomeTaxByOptions = ["", "Supplier", "KANA"];
+    IncomeTaxByOptions = ["", "Supplier", "Dan Liris"];
     termPaymentOptions = ['CASH', 'KREDIT', 'DP (DOWN PAYMENT) + BP (BALANCE PAYMENT)', 'DP (DOWN PAYMENT) + TERMIN 1 + BP (BALANCE PAYMENT)', 'RETENSI'];
     importInfo = ['', 'CIF', 'FOB', 'CNF', 'DDU', 'DDP', 'EX WORK', 'OTHERS'];
     controlOptions = {

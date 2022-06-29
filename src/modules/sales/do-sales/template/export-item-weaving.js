@@ -48,6 +48,6 @@ export class localitemsweaving {
       this.data.Weight = this.Weight;
     }
 
-    gradeOptions = ["", "A", "AB", "B", "BC", "C", "Standar PT KANA (Golongan III & IV)", "All"];
+    gradeOptions = ["", "A", "AB", "B", "BC", "C", "Standar PT Dan Liris (Golongan III & IV)", "All"];
 }
 
