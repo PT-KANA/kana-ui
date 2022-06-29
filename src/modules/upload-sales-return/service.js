@@ -1,7 +1,7 @@
 import { RestService } from "../../utils/rest-service";
 
-const getFilePeriode = "GetFilePeriode";
-const getArea = "GetArea";
+const uri = "sales-return";
+ 
 
 export class Service extends RestService {
   constructor(http, aggregator, config, api) {
@@ -9,12 +9,9 @@ export class Service extends RestService {
   }
 
   search(info) {
-    var endpoint = `${getFilePeriode}`;
+    var endpoint = `${uri}`;
     return super.list(endpoint, info);
   }
 
-  getArea() {
-    var endpoint = `${getArea}`;
-    return super.get(endpoint);
-  }
+  
 }
