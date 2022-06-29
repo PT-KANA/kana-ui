@@ -6,12 +6,9 @@ import moment from "moment";
 @inject(Router, Service)
 export class List {
   columns = [
-    { field: "name", title: "Area" },
-    { field: "month", title: "Bulan" },
-    { field: "year", title: "Tahun" },
-    { field: "updatedAt", title: "Tanggal Update", formatter: function (value, data, index) {
-      return moment.utc(value).local().format('DD-MM-YYYY HH:mm');
-    }},
+    { field: "salesNo", title: "No Penjualan" },
+    { field: "salesDate", title: "Tanggal Penjualan" },
+   
   ];
 
   loader = (info) => {
