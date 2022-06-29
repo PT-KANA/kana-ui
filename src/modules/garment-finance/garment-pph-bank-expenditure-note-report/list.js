@@ -304,8 +304,8 @@ export class List {
         let wb = XLSX.utils.book_new();
         wb.Props = {
           Title: "Report",
-          Subject: "KANA",
-          Author: "KANA",
+          Subject: "Dan Liris",
+          Author: "Dan Liris",
           CreatedDate: new Date(),
         };
         wb.SheetNames.push("Laporan PPH");
@@ -315,7 +315,7 @@ export class List {
         XLSX.utils.sheet_add_aoa(
           ws,
           [
-            ["PT.KANA"],
+            ["PT.Dan Liris"],
             ["Laporan Bukti Pengeluaran Bank PPH"],
             [
               `PERIODE : ${

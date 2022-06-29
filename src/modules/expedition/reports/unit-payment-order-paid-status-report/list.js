@@ -246,8 +246,8 @@ export class List {
                     let wb = XLSX.utils.book_new();
                     wb.Props = {
                         Title: 'Report',
-                        Subject: 'KANA',
-                        Author: 'KANA',
+                        Subject: 'Dan Liris',
+                        Author: 'Dan Liris',
                         CreatedDate: new Date()
                     };
                     wb.SheetNames.push('Laporan SPB');

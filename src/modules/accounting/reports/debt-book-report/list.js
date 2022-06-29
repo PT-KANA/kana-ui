@@ -48,7 +48,7 @@ export class List {
   @bindable type
   @bindable Name
   SupplierType = ['','LOCAL', 'IMPORT'];
-  SupplierName = ['','KANA', 'SELAIN KANA'];
+  SupplierName = ['','DAN LIRIS', 'SELAIN DAN LIRIS'];
   bind(context) {
     console.log(context);
     this.context = context;

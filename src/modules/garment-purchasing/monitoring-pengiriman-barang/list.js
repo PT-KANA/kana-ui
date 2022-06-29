@@ -21,7 +21,7 @@ export class List {
 
     }
 
-    termPaymentOptions = ['', 'T/T PAYMENT', 'CMT', 'FREE FROM BUYER', 'SAMPLE', 'KANA'];
+    termPaymentOptions = ['', 'T/T PAYMENT', 'CMT', 'FREE FROM BUYER', 'SAMPLE', 'DAN LIRIS'];
 
     typePaymentOptions = ['', 'T/T BEFORE', 'T/T AFTER', 'FREE', 'CASH', 'EX MASTER FREE', 'EX MASTER BELI', 'EX MASTER GUDANG'];
 
