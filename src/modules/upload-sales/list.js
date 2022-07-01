@@ -6,8 +6,12 @@ import moment from "moment";
 @inject(Router, Service)
 export class List {
   columns = [
-    { field: "salesNo", title: "No Penjualan" },
-    { field: "salesDate", title: "Tanggal Penjualan" },
+    { field: "OrderDownPaymentNumber", title: "No Penjualan" },
+    { field: "CustomerNo", title: "Pelanggan" },
+    { field: "TransDate", title: "Tanggal Penjualan", formatter: function (value, data, index) {
+      return moment(value).format("DD MMM YYYY");
+  }
+ },
    
   ];
 
@@ -24,6 +28,7 @@ export class List {
 
     return this.service.search(arg).then((result) => {
       var resultPromise = [];
+      console.log(result);
       if (result && result.data && result.data.length > 0) {
         resultPromise = result.data;
       }
