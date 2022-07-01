@@ -1,6 +1,6 @@
 import { RestService } from "../../utils/rest-service";
 
-const uri = "product";
+const uri = "master/item";
  
 
 export class Service extends RestService {
