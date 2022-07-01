@@ -5,7 +5,15 @@ import moment from "moment";
 
 @inject(Router, Service)
 export class List {
+  dataToBePosted = [];
   columns = [
+    {
+      field: "isAccurate", title: "Post", checkbox: true, sortable: false,
+      formatter: function (value, data, index) {
+        this.checkboxEnabled = !data.isPosted;
+        return ""
+      }
+    },
     { field: "code", title: "Kode Barang" },
     { field: "name", title: "Nama Master" },
    
@@ -49,5 +57,14 @@ export class List {
 
   upload() {
     this.router.navigateToRoute("upload");
+  }
+  posting() {
+    if (this.dataToBePosted.length > 0) {
+      this.service.post(this.dataToBePosted).then(result => {
+        this.table.refresh();
+      }).catch(e => {
+        this.error = e;
+      })
+    }
   }
 }

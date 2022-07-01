@@ -7,9 +7,13 @@
     sortable.bind="true"
     page-size="25"
     context.bind="context"
-    context-click.delegate="contextCallback($event)">
+    context-click.delegate="contextCallback($event)"
+    context-show.call="contextShowCallback(index, context, data)" selectable.bind="true" selections.bind="dataToBePosted" row-formatter.bind="rowFormatter"
+    >
     <div slot="toolbar" class="btn-group">
-      <button class="btn btn-default" click.delegate="upload()">Upload Excel</button>
+        <button class="btn btn-success" click.delegate="upload()">Upload Excel</button>											
+        <button class="btn btn-primary" disabled.bind="!dataToBePosted.length > 0" click.delegate="posting()">Post Ke Accurate</button>											
+        
     </div>
   </au-table>
 </template>
