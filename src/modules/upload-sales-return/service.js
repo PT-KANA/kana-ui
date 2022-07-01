@@ -13,5 +13,8 @@ export class Service extends RestService {
     return super.list(endpoint, info);
   }
 
-  
+  post(data) {
+    var endpoint = 'sales-return/post';
+    return super.post(endpoint, data);
+}
 }

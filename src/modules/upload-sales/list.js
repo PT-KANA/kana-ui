@@ -5,14 +5,20 @@ import moment from "moment";
 
 @inject(Router, Service)
 export class List {
+  dataToBePosted = [];
   columns = [
+    {
+      field: "isAccurate", title: "Post", checkbox: true, sortable: false,
+      formatter: function (value, data, index) {
+        this.checkboxEnabled = !data.isPosted;
+        return ""
+      }
+    },
     { field: "OrderDownPaymentNumber", title: "No Penjualan" },
     { field: "CustomerNo", title: "Pelanggan" },
     { field: "TransDate", title: "Tanggal Penjualan", formatter: function (value, data, index) {
-      return moment(value).format("DD MMM YYYY");
-  }
- },
-   
+      return moment(value).format("DD MMM YYYY"); }},
+    { field: "BranchName", title: "Location" },
   ];
 
   loader = (info) => {
