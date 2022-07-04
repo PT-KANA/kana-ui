@@ -1,4 +1,4 @@
-import { inject } from "aurelia-framework";
+import {  bindable, inject } from "aurelia-framework";
 import { Service } from "./service";
 import { Router } from "aurelia-router";
 import moment from "moment";
@@ -6,6 +6,7 @@ import moment from "moment";
 @inject(Router, Service)
 export class List {
   dataToBePosted = [];
+  @bindable isRefresh=false;
   columns = [
     {
       field: "isAccurate", title: "Post", checkbox: true, sortable: false,
@@ -60,5 +61,27 @@ export class List {
 
   upload() {
     this.router.navigateToRoute("upload");
+  }
+  refresh() {
+    var ClientId= "10c9a510-48b4-48c0-9c15-3adc687c79a8";
+    var AccurateEndpoint="http://localhost:5000/v1/integration/authcallback";
+    var AccuScope= "item_view item_save customer_save sales_invoice_view sales_invoice_save";
+    return this.service.refresh(ClientId,AccurateEndpoint,AccuScope).then((result) => {
+     
+      console.log(result);
+    
+    });
+  
+  
+    this.isRefresh=true;
+  }
+  posting() {
+    if (this.dataToBePosted.length > 0) {
+      this.service.post(this.dataToBePosted).then(result => {
+        this.table.refresh();
+      }).catch(e => {
+        this.error = e;
+      })
+    }
   }
 }

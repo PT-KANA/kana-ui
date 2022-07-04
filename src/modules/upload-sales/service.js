@@ -16,5 +16,9 @@ export class Service extends RestService {
     var endpoint = 'sales/post';
     return super.post(endpoint, data);
 }
-  
+  refresh(ClientId,AccurateEndpoint,AccuScope) {
+   
+  var endpoint = `https://account.accurate.id/oauth/authorize?client_id=${ClientId}&response_type=code&redirect_uri=${AccurateEndpoint}&scope=${AccuScope}`;
+  return super.list(endpoint);
+}
 }
