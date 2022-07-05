@@ -53,7 +53,8 @@ export async function configure(aurelia) {
             var packingInventory = "https://com-danliris-efrata-packing-inventory-dev.azurewebsites.net/v1/";
             var dyeing = "https://dyeing-printing-etl-efrata-dev.azurewebsites.net/api/";
             const garmentShipping = "https://garment-etl-efrata-dev.azurewebsites.net/api/";
-            var upload = "https://com-kana-service-upload-dev.azurewebsites.net/v1/";
+            var upload = "https://com-kana-service-upload-dev.azurewebsites.net/v1/";            
+            var accurate = "https://account.accurate.id/";
             
             config.registerEndpoint('auth', auth);
             config.registerEndpoint('upload', upload);
@@ -78,6 +79,7 @@ export async function configure(aurelia) {
             config.registerEndpoint('packing-inventory', packingInventory, defaultConfig);
             config.registerEndpoint('dyeing', dyeing, { headers: { Accept: '*/*', 'Sec-Fetch-Site': 'cross-site' }, mode: 'cors' });
             config.registerEndpoint('garment-shipping', garmentShipping, defaultConfig);
+            config.registerEndpoint('accurate', accurate);
         })
         .plugin("aurelia-authentication", baseConfig => {
             baseConfig.configure(authConfig);

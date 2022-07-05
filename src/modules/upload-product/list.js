@@ -14,8 +14,8 @@ export class List {
         return ""
       }
     },
-    { field: "code", title: "Kode Barang" },
-    { field: "name", title: "Nama Master" },
+    { field: "No", title: "Kode Barang" },
+    { field: "Name", title: "Nama Barang" },
    
   ];
 
@@ -58,6 +58,11 @@ export class List {
   upload() {
     this.router.navigateToRoute("upload");
   }
+
+  refresh(){
+    this.service.getCode();
+  }
+
   posting() {
     if (this.dataToBePosted.length > 0) {
       this.service.post(this.dataToBePosted).then(result => {
