@@ -40,7 +40,6 @@ export class Create {
         this.router.navigateToRoute('list');
     }
 
-   
 
     cancelCallback(event) {
       this.list();
@@ -87,7 +86,6 @@ export class Create {
                     else {
                         alert("Data Berhasil Diupload");
                         this.list();
-
                     }
                     return Promise.resolve(result);
                 });
