@@ -60,7 +60,7 @@ export class Create {
         } else {
             formData.append("file", fileList[0]);
            
-            var endpoint = 'salesReturn/upload';
+            var endpoint = 'sales-return/upload';
             var request = {
                 method: 'POST',
                 headers: {
@@ -82,7 +82,7 @@ export class Create {
                         this.list();
                     }
                     else if (result.status == 404) {
-                        alert("Urutan format kolom CSV tidak sesuai.\n Format: Packing List, Password, Barcode, Name, Size, Price, UOM, QTY, RO, HPP");
+                        alert("Urutan format kolom CSV tidak sesuai.\n Format: Tanggal Retur,No Identitas Customer,	No Penjualan,Kode Barang,Harga Barang,No Faktur Pajak,Tanggal Faktur Pajak,Keterangan");
                     }
                     else {
                         alert("Data Berhasil Diupload");

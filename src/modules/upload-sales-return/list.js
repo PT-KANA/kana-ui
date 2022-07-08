@@ -15,9 +15,10 @@ export class List {
         return ""
       }
     },
-    { field: "salesReturnNo", title: "No Retur" },
-    { field: "salesNo", title: "No Penjualan" },
-    { field: "salesReturnDate", title: "Tanggal Retur" },
+    { field: "CustomerNo", title: "No Identitas Customer" },
+    { field: "TransDate", title: "Tanggal Retur" , formatter: function (value, data, index) {
+      return moment(value).format("DD MMM YYYY"); }},
+    { field: "ReturnType", title: "Tipe Retur" },
    
   ];
 
