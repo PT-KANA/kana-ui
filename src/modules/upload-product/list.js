@@ -1,4 +1,4 @@
-import { inject } from "aurelia-framework";
+import { bindable, inject } from "aurelia-framework";
 import { Service } from "./service";
 import { Router } from "aurelia-router";
 import moment from "moment";
@@ -6,17 +6,33 @@ import moment from "moment";
 @inject(Router, Service)
 export class List {
   dataToBePosted = [];
+  @bindable isRefresh=false;
+
+  rowFormatter(data, index) {
+    if (data.isPosted)
+        return { classes: "success" }
+    else
+        return {}
+  }
+
+  context = ["Rincian"]
+
   columns = [
     {
       field: "isAccurate", title: "Post", checkbox: true, sortable: false,
       formatter: function (value, data, index) {
-        this.checkboxEnabled = !data.isPosted;
+        this.checkboxEnabled = !data.isAccurate;
         return ""
       }
     },
-    { field: "No", title: "Kode Barang" },
-    { field: "Name", title: "Nama Barang" },
-   
+    { field: "no", title: "Kode Barang" },
+    { field: "name", title: "Nama Barang" },
+    { 
+      field: "isAccurate", title: "Status Post", 
+      formatter: function (value, data, index) {
+        return data.isAccurate ? "Sudah Diupload Ke Accurate" : "Belum Diupload Ke Accurate";
+      }
+    }
   ];
 
   loader = (info) => {
@@ -30,18 +46,19 @@ export class List {
       order: order,
     };
 
-    return this.service.search(arg).then((result) => {
-      var resultPromise = [];
-      if (result && result.data && result.data.length > 0) {
-        resultPromise = result.data;
-      }
-      return Promise.all(resultPromise).then((newResult) => {
-        return {
-          total: result.info.total,
-          data: newResult,
-        };
+    return this.service.search(arg)
+      .then((result) => {
+        var resultPromise = [];
+        if (result && result.data && result.data.length > 0) {
+          resultPromise = result.data;
+        }
+        return Promise.all(resultPromise).then((newResult) => {
+          return {
+            total: result.info.total,
+            data: newResult,
+          };
+        });
       });
-    });
   };
 
   constructor(router, service) {
@@ -61,6 +78,7 @@ export class List {
 
   refresh(){
     this.service.getCode();
+    this.isRefresh=true;
   }
 
   posting() {

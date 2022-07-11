@@ -1,4 +1,4 @@
-import { inject } from "aurelia-framework";
+import { bindable, inject } from "aurelia-framework";
 import { Service } from "./service";
 import { Router } from "aurelia-router";
 import moment from "moment";
@@ -7,6 +7,8 @@ import moment from "moment";
 export class List {
   
   dataToBePosted = [];
+  @bindable isRefresh=false;
+
   columns = [
     {
       field: "isAccurate", title: "Post", checkbox: true, sortable: false,
@@ -15,10 +17,12 @@ export class List {
         return ""
       }
     },
-    { field: "CustomerNo", title: "No Identitas Customer" },
-    { field: "TransDate", title: "Tanggal Retur" , formatter: function (value, data, index) {
-      return moment(value).format("DD MMM YYYY"); }},
-    { field: "ReturnType", title: "Tipe Retur" },
+    { field: "invoiceNumber", title: "No Penjualan" },
+    { field: "transDate", title: "Tanggal Retur", formatter: function (value, data, index) {
+      return moment(value).format("DD MMM YYYY"); }
+    },
+    { field: "customerNo", title: "Pelanggan" },
+    
    
   ];
 
@@ -58,9 +62,15 @@ export class List {
     
   }
 
+  refresh(){
+    this.service.getCode();
+    this.isRefresh=true;
+  }
+
   upload() {
     this.router.navigateToRoute("upload");
   }
+
   posting() {
     if (this.dataToBePosted.length > 0) {
       this.service.post(this.dataToBePosted).then(result => {

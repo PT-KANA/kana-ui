@@ -11,8 +11,8 @@
   context-show.call="contextShowCallback(index, context, data)" selectable.bind="true" selections.bind="dataToBePosted" row-formatter.bind="rowFormatter"
   >
   <div slot="toolbar" class="btn-group">
-      <button class="btn btn-success" click.delegate="refresh()">Refresh Token</button>	
-      <button class="btn btn-success" click.delegate="upload()">Upload Excel</button>											
+      <button class="btn btn-success" data.bind="isRefresh" click.delegate="refresh()">Refresh Token</button>	
+      <button class="btn btn-success" disabled.bind="!isRefresh" click.delegate="upload()">Upload Excel</button>											
       <button class="btn btn-primary" disabled.bind="!dataToBePosted.length > 0" click.delegate="posting()">Post Ke Accurate</button>											
       
   </div>
