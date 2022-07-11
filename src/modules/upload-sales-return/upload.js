@@ -60,7 +60,7 @@ export class Create {
         } else {
             formData.append("file", fileList[0]);
            
-            var endpoint = 'salesReturn/upload';
+            var endpoint = 'sales-return/upload';
             var request = {
                 method: 'POST',
                 headers: {
@@ -68,7 +68,6 @@ export class Create {
                 body: formData
             };
  
-           
             var promise = this.service.endpoint.client.fetch(endpoint, request);
             this.service.publish(promise);
             return promise
@@ -87,7 +86,6 @@ export class Create {
                     else {
                         alert("Data Berhasil Diupload");
                         this.list();
-
                     }
                     return Promise.resolve(result);
                 });
