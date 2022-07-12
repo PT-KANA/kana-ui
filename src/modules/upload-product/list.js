@@ -9,7 +9,7 @@ export class List {
   @bindable isRefresh=false;
 
   rowFormatter(data, index) {
-    if (data.isPosted)
+    if (data.isAccurate)
         return { classes: "success" }
     else
         return {}
@@ -19,7 +19,7 @@ export class List {
 
   columns = [
     {
-      field: "isAccurate", title: "Post", checkbox: true, sortable: false,
+      field: "isAccurates", title: "Post", checkbox: true, sortable: false,
       formatter: function (value, data, index) {
         this.checkboxEnabled = !data.isAccurate;
         return ""

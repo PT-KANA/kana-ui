@@ -8,10 +8,15 @@ export class List {
   
   dataToBePosted = [];
   @bindable isRefresh=false;
-
+  rowFormatter(data, index) {
+    if (data.isAccurate)
+      return { classes: "success" }
+    else
+      return {}
+  }
   columns = [
     {
-      field: "isAccurate", title: "Post", checkbox: true, sortable: false,
+      field: "isAccurates", title: "Post", checkbox: true, sortable: false,
       formatter: function (value, data, index) {
         this.checkboxEnabled = !data.isPosted;
         return ""
