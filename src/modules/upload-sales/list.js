@@ -7,19 +7,33 @@ import moment from "moment";
 export class List {
   dataToBePosted = [];
   @bindable isRefresh=false;
+  
+  rowFormatter(data, index) {
+    if (data.isAccurate)
+      return { classes: "success" }
+    else
+      return {}
+  }
+
   columns = [
     {
-      field: "isAccurate", title: "Post", checkbox: true, sortable: false,
+      field: "isPosting", title: "Post", checkbox: true, sortable: false,
       formatter: function (value, data, index) {
-        this.checkboxEnabled = !data.isPosted;
+        this.checkboxEnabled = !data.isAccurate;
         return ""
       }
     },
-    { field: "OrderDownPaymentNumber", title: "No Penjualan" },
-    { field: "CustomerNo", title: "Pelanggan" },
-    { field: "TransDate", title: "Tanggal Penjualan", formatter: function (value, data, index) {
+    { field: "number", title: "No Penjualan" },
+    { field: "customerNo", title: "Pelanggan" },
+    { field: "transDate", title: "Tanggal Penjualan", formatter: function (value, data, index) {
       return moment(value).format("DD MMM YYYY"); }},
-    { field: "BranchName", title: "Location" },
+    { field: "branchName", title: "Location" },
+    { 
+      field: "isAccurate", title: "Status Post", 
+      formatter: function (value, data, index) {
+        return value ? "Sudah Diupload Ke Accurate" : "Belum Diupload Ke Accurate";
+      }
+    }
   ];
 
   loader = (info) => {
@@ -62,17 +76,9 @@ export class List {
   upload() {
     this.router.navigateToRoute("upload");
   }
-  refresh() {
-    var ClientId= "10c9a510-48b4-48c0-9c15-3adc687c79a8";
-    var AccurateEndpoint="http://localhost:5000/v1/integration/authcallback";
-    var AccuScope= "item_view item_save customer_save sales_invoice_view sales_invoice_save";
-    return this.service.refresh(ClientId,AccurateEndpoint,AccuScope).then((result) => {
-     
-      console.log(result);
-    
-    });
-  
-  
+  refresh(){
+    this.service.getCode();
+   
     this.isRefresh=true;
   }
   posting() {
