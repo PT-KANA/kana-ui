@@ -81,7 +81,7 @@ export class Create {
                         this.list();
                     }
                     else if (result.status == 404) {
-                        alert("Urutan format kolom CSV tidak sesuai.\n Format: Tanggal Retur,No Identitas Customer,	No Penjualan,Kode Barang,Harga Barang,No Faktur Pajak,Tanggal Faktur Pajak,Keterangan");
+                        alert("Urutan format kolom CSV tidak sesuai.\n Format: Tanggal Retur,No Identitas Customer,	No Penjualan,Kode Barang,Harga Barang,No Faktur Pajak,Tanggal Faktur Pajak,Kuantitas,Keterangan");
                     }
                     else {
                         alert("Data Berhasil Diupload");
