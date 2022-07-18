@@ -21,6 +21,21 @@ module.exports = [
         auth: true,
         settings: {
           group: "upload",
+          subGroup: "Unggah File Penjualan",
+          permission: { C1: 1, B1: 1, B12: 1 },
+          iconClass: "fa fa-upload",
+        },
+      },
+      {
+        route: "/upload-sales-receipt",
+        name: "PILLAR - Unggah File",
+        moduleId: "./modules/upload-sales-receipt/index",
+        nav: true,
+        title: "Approve Penjualan",
+        auth: true,
+        settings: {
+          group: "upload",
+          subGroup: "Unggah File Penjualan",
           permission: { C1: 1, B1: 1, B12: 1 },
           iconClass: "fa fa-upload",
         },

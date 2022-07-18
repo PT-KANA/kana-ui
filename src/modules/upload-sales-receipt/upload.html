@@ -1,0 +1,22 @@
+<template>
+    <h1 class="page-header">Unggah Data</h1>
+    <form class="form-horizontal">
+         
+        <div class="${error.file ? 'has-error':''}">
+            <label for="dataFile" class="col-sm-4 control-label">File Path</label>
+            <div class="col-sm-4">
+                <input type="file" id="fileCsv" name="fileUpload">
+                <span class="help-block">${error.file}</span>
+            </div>
+        </div>
+    </form>
+
+    
+    <block>
+        <hr/>
+        <div class="btn-group pull-right">
+            <button class="btn btn-default" click.delegate="cancelCallback()">Kembali</button>
+            <button class="btn btn-success" disabled.bind="disabled" click.delegate="saveCallback()">Simpan</button>
+        </div>
+    </block>
+</template>
