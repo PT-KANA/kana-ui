@@ -17,11 +17,10 @@ module.exports = [
         name: "PILLAR - Unggah File",
         moduleId: "./modules/upload-sales/index",
         nav: true,
-        title: "Unggah File Penjualan",
+        title: "Unggah File  Penjualan",
         auth: true,
         settings: {
           group: "upload",
-          subGroup: "Unggah File Penjualan",
           permission: { C1: 1, B1: 1, B12: 1 },
           iconClass: "fa fa-upload",
         },
@@ -35,7 +34,6 @@ module.exports = [
         auth: true,
         settings: {
           group: "upload",
-          subGroup: "Unggah File Penjualan",
           permission: { C1: 1, B1: 1, B12: 1 },
           iconClass: "fa fa-upload",
         },
