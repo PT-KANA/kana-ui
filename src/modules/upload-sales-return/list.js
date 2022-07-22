@@ -77,12 +77,20 @@ export class List {
   }
 
   posting() {
-    if (this.dataToBePosted.length > 0) {
-      this.service.post(this.dataToBePosted).then(result => {
-        this.table.refresh();
-      }).catch(e => {
-        this.error = e;
-      })
+    if(this.refresh == false)
+    {
+      alert('Refresh Token harus diklik')
+    }else
+    {
+      if (this.dataToBePosted.length > 0) {
+        this.service.post(this.dataToBePosted).then(result => {
+          this.table.refresh();
+        }).catch(e => {
+          this.error = e;
+        })
+      }
     }
+    
+
   }
 }
