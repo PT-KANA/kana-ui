@@ -78,22 +78,24 @@ export class List {
 
   refresh(){
     this.service.getCode();
-    this.isRefresh=true;
   }
 
+  
   posting() {
-    if(this.isRefresh == false)
-    {
-      alert('Refresh Token harus diklik')
-    }else
-    {
       if (this.dataToBePosted.length > 0) {
         this.service.post(this.dataToBePosted).then(result => {
-          this.table.refresh();
+            this.table.refresh();
         }).catch(e => {
           this.error = e;
+          if (String(e).match("No Access Token")) {
+            let isExecuted = confirm("Klik Ok Untuk Melakukan Connect dengan Accurate \n (Mohon Melakukan Posting Ulang Setelah Tahap ini Selesai)");
+            if (isExecuted) {
+              this.refresh();
+            }
+          }
+          
         })
       }
-    }
+    
   }
 }

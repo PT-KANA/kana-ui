@@ -26,7 +26,7 @@ export class List {
     { field: "number", title: "No Penjualan" },
     { field: "customerNo", title: "Pelanggan" },
     { field: "transDate", title: "Tanggal Penjualan", formatter: function (value, data, index) {
-      return moment(value).format("DD MMM YYYY"); }},
+      return moment(value,'DD/MM/YYYY HH:mm:ss ZZ').format("DD MMM YYYY"); }},
     { field: "branchName", title: "Location" },
     { 
       field: "isAccurate", title: "Status Post", 
@@ -78,22 +78,21 @@ export class List {
   }
   refresh(){
     this.service.getCode();
-   
-    this.isRefresh=true;
   }
   posting() {
-    if(this.isRefresh == false)
-    {
-      alert('Refresh Token harus diklik')
-    }else
-    {
       if (this.dataToBePosted.length > 0) {
         this.service.post(this.dataToBePosted).then(result => {
           this.table.refresh();
         }).catch(e => {
           this.error = e;
+          if (String(e).match("No Access Token")) {
+            let isExecuted = confirm("Klik Ok Untuk Melakukan Connect dengan Accurate \n (Mohon Melakukan Posting Ulang Setelah Tahap ini Selesai)");
+            if (isExecuted) {
+              this.refresh();
+            }
+          }
         })
       }
-    }
+    
   }
 }

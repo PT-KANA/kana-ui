@@ -31,7 +31,7 @@ export async function configure(aurelia) {
             }
 
             var core = "https://com-efrata-service-core-dev.azurewebsites.net/v1/";
-            var auth = "https://com-kana-service-auth-dev.azurewebsites.net/v1/";
+            var auth ="http://localhost:49798/v1/";
             var production = "https://dl-production-webapi-dev.azurewebsites.net/v1/";
             var productionAzure = "https://com-efrata-service-finishing-printing-dev.azurewebsites.net/v1/";
             var purchasing = "https://dl-purchasing-webapi-dev.azurewebsites-dev.net/v1/";
@@ -53,7 +53,7 @@ export async function configure(aurelia) {
             var packingInventory = "https://com-danliris-efrata-packing-inventory-dev.azurewebsites.net/v1/";
             var dyeing = "https://dyeing-printing-etl-efrata-dev.azurewebsites.net/api/";
             const garmentShipping = "https://garment-etl-efrata-dev.azurewebsites.net/api/";
-            var upload = "https://com-kana-service-upload-dev.azurewebsites.net/v1/";            
+            var upload = "http://localhost:5000/v1/";            
             var accurate = "https://account.accurate.id/";
             
             config.registerEndpoint('auth', auth);
