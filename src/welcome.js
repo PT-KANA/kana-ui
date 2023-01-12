@@ -19,7 +19,7 @@ export class Welcome {
     var config = Container.instance.get(Config);
     var _accurate = config.getEndpoint("accurate").client.baseUrl;
     var _upload = config.getEndpoint("upload").client.baseUrl;
-    var scope = 'item_view item_save customer_save sales_invoice_save';
+    var scope = 'item_view item_save customer_save sales_invoice_save sales_invoice_view customer_view sales_receipt_save glaccount_view';
 
     var clientId = '10c9a510-48b4-48c0-9c15-3adc687c79a8';
 

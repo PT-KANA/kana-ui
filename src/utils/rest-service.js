@@ -26,6 +26,9 @@ export class RestService {
     if (result.statusCode === 500) {
       return Promise.reject(result);
     }
+    else if (result.statusCode === 404) {
+      return Promise.reject(result.message);
+    }
     else if (result.error) {
       return Promise.reject(result.error);
     }
